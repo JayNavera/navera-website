@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    header {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    }
+
+    .left {
+    float: left;
+    width: 50%;
+    background: lightyellow;
+    padding: 20px;
+    }
+    
+    .right {
+    float: right;
+    width: 50%;
+    background: lightyellow;
+    padding: 20px;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    }
+    
+    ul {
+    list-style-type: none;
+    background: rgb(27, 159, 168);
+    padding: 5px;
+    margin: 0;
+    }
+
+    li {
+    display: inline;
+    margin-right: 20px;
+    }
+
+    a {
+    color: rgb(177, 37, 37);
+    text-decoration: none;
+    }
+
+    .btn {
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    }
+    .btn:hover {
+    background: darkgreen;
+    }
+
+    form {
+    width: 300px;
+    margin: 20px 0;
+    }
+
+    input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    }
+
+    .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 250px;
+    margin: 10px auto;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid black;
+    }
+
+    .modal.show {
+    display: block;
+    }
+
+    .row {
+    display: flex;
+    }
+    .col {
+    flex: 1;
+    margin: 5px;
+    padding: 20px;
+    background: lightblue;
+    }
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    }
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    }
+
+    header {
+    position: sticky;
+    top: 0;
+    background: rgb(29, 235, 81);
+    padding: 15px;
+    }
+
+    footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    color: rgb(230, 8, 8);
+    text-align: center;
+    padding: 10px;
+    }
+
+    .gallery { 
+      display: flex; 
+      flex-wrap: wrap; 
+    } 
+    .gallery img { 
+      width: 30%; 
+      margin: 1%; 
+    }
+
+    .card { 
+      width: 250px; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+      padding: 15px; 
+      text-align: center; 
+    } 
+    .card img { 
+      width: 100px; 
+      border-radius: 50%; 
+    } 
+
+    .banner { 
+      background: rgb(138, 241, 241); 
+      padding: 50px; 
+      text-align: center; 
+    }
+
+    nav { 
+      display: flex; 
+      justify-content: space-between; 
+      background: #333; 
+      padding: 10px; 
+    } 
+
+    nav a { 
+      color: white; 
+      margin: 0 10px; 
+      text-decoration: none; 
+    }
+
+    .pricing { 
+      display: flex; 
+      justify-content: center; 
+    } 
+
+    .plan { 
+      border: 1px solid #bb1d1d; 
+      padding: 20px; 
+      margin: 5px; 
+      width: 1000px; 
+      text-align: center; 
+    }
+
+    .sidebar { 
+      width: 200px; 
+      float: left; 
+      background: lightgray; 
+      height: 20px; 
+      padding: 20px; 
+    } 
+
+    .content { 
+      margin-left: 20px; 
+      padding: 20px; 
+    }
+
+    button { 
+    background-color: rgb(219, 64, 3); 
+    color: white; 
+    padding: 10px; 
+    width: 100%; 
+    border: none; 
+    cursor: pointer; 
+    } 
+    button:hover { 
+    background-color: rgb(245, 205, 27); 
+    }
+
+    .login-box { 
+    width: 300px; 
+    padding: 20px; 
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    } 
+    </style>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <link rel="icon" type="image/jpg" href="./images/favicon.jpg">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+    </header>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="banner"> 
+        <h1>Welcome to My Website</h1> 
+        <p>This is a hero banner</p> 
+    </div>
+    
+    <nav> 
+        <div>Logo</div> 
+            <div> 
+                <a href="#">Home</a> 
+                <a href="#">About</a> 
+            </div> 
+    </nav>
+
+    <h1 id="main-title">Jaymark O. Navera</h1> 
+
+    <img id="profile-pic" src="./images/Polish_Jerry.jpg" alt="My Photo" width="200">
+    
+    <div id="container"> 
+        <h2>About Me</h2>
+        <p>My Name is <b>Jaymark</b> and Music is the Best</p>
+        <p id="intro-text">Close your eyes <br>Open your eyes <br>Close again <br>I dont want to close open <br>Do you understand <br>I dont understand </p>
+        <hr>
+    </div>
+
+    <div class="card"> 
+        <img src="images/favicon.jpg"> 
+        <h3>Jay</h3> 
+        <p>Web Developer</p> 
+    </div>
+
+    <div class="sidebar">Sidebar</div> 
+    <div class="content">Main Content</div>
+
+    <button class="btn">Click Me</button>
+
+    <p class="paragraph">I Love <i>listening</i> to Music</p>
+
+    <p class="paragraph">My current favorite is <u>I Don't Love You</u> by MCR</p>
+
+    <div class="none">
+        <p class="paragraph">Top 3 Foods</p>
+
+            <ol>
+                <li>Sinigang</li>
+                <li>Igado</li>
+                <li>Pork Adobo</li>
+            </ol>
+
+        <P class="paragraph">Hobbies</P>
+
+            <ul>
+                <li>Watching Movies and Shows</li>
+                <li>Gaming</li>
+                <li>Sleeping</li>
+            </ul>
+    </div>
+    
+    <form>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button>Submit</button>
+    </form>
+    
+    <div class="left">Left Content</div>
+
+    <div class="right">Right Content</div>
+
+    <a id="home-link" href="https://www.google.com/">Visit Google</a>
+    <a href="mailto:jon2023-4138-93628@bicol-u.edu.ph">Send me an Email</a>
+
+    <div id="login-form">
+        <table id="student-table" border="1">
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+            </tr>
+
+            <tr>
+                <td>Jaymark</td>
+                <td>22</td>
+            </tr>
+        </table>
+
+        <form>
+            Password: <input id="email-field" type="password" name="pwd">
+        </form>
+
+        <form id="submit-btn">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Card Title</h3>
+        <p>Some card content.</p>
+    </div>
+
+    <div class="pricing"> 
+        <div class="plan">Basic</div> 
+        <div class="plan">Standard</div> 
+        <div class="plan">Premium</div> 
+    </div>
+
+    <!--This is a comment-->
+
+    <form>
+        <p>Gender:</p>
+        <input type="radio" name="gender" value="male" > Male <br>
+        <input type="radio" name="gender" value="female" > Female
+    </form>
+
+    <form>
+        <p>Hobbies:</p>
+        <input type="checkbox" name="hobby" value="reading" > Reading <br>
+        <input type="checkbox" name="hobby" value="sports" > Sports <br>
+        <input type="checkbox" name="hobby" value="travel" > Travel
+    </form>
+
+    <form>
+        <label for="country">Select Country</label>
+            <select id="country">
+                <option>Philippines</option>
+                <option>Japan</option>
+                <option>USA</option>
+            </select>
+    </form>
+
+    <form>
+        <label for="message">Message</label><br>
+        <textarea id="message" rows="4" cols="30"></textarea>
+    </form>
+
+    <img src="images/favicon.jpg" alt="Sample">
+
+    <audio controls>
+        <source src="music/Eternal Phlegm.mp3" type="audio/mp3">
+    </audio>
+
+    <video width="320" height="240" controls>
+        <source src="./videos/jerry.mp4" type="video/mp4">
+    </video>
+
+    <iframe src="https://www.google.com/" width="600" height="400"></iframe>
+
+    <iframe width="560" height="315"
+        src="https://youtube.com/embed/fzDZrPZ8s5c?si=VTUZDwujCXQuISV4" frameborder = "0" allowfullscreen>
+    </iframe>
+    
+    <p>Water Formula: H <sub>2</sub>O</p>
+
+    <button
+        onclick="document.getElementById('myModal').classList.add('show')">Open Modal
+    </button>
+
+    <div id="myModal" class="modal">
+        <p>This is a modal!</p>
+    </div>
+
+    <div class="row">
+        <div class="col">Column 1</div>
+        <div class="col">Column 2</div>
+        <div class="col">Column 3</div>
+    </div>
+
+    <div class="dropdown">
+        <button>Menu</button>
+            <div class="dropdown-content">
+                <p>Option 1</p>
+                <p>Option 2</p>
+            </div>
+    </div>
+
+    <div class="center">
+        <h1>Centered Text</h1>
+    </div>
+
+    <header>Sticky Header</header>
+    <p>Scroll down...</p>
+    <div style="height: 50px;"></div>
+
+    <div class="gallery"> 
+        <img src="images/furry1.jpg"> 
+        <img src="images/furry4.jpg"> 
+        <img src="images/furtesting.jpg"> 
+    </div>
+
+    <p>Page content here...</p>
+    <footer>Fixed Footer</footer>
+
+    <p>x <sup>2</sup></p>
+    <p>This is <strong>very important</strong>!</p>
+    <p>Please <em>read carefully</em>.</p>
+    <p><small>© 2025 My Website</small></p>
+    <p>He said, <q>Hello World!</q></p>
+    <p><abbr title="HyperText Markup Language">HTML</abbr>is the language of the web. </p>
+
+    <div id="footer-text">
+        <address>
+            Written by Jaymark Navera <br>
+            Visit us at www.mywebsite.com <br>
+            Albay, Philippines
+        </address>
+            <p>This is a <mark>highlighted</mark> word.</p>
+            <p>Task Progress:</p>
+            <progress value="70" max="100"></progress>
+    </div>
+
+    <h2>Create the Basic Html Form</h2>
+    <form> 
+        <label>Username:</label> 
+        <input type="text" name="username"> 
+        <label>Password:</label> 
+        <input type="password" name="password"> 
+        <button type="submit">Login</button> 
+    </form>
+
+    <h2>Add for and id attributes for accessibility</h2>
+    <form> 
+        <label for="username">Username:</label> 
+        <input type="text" id="username" name="username"> 
+        <label for="password">Password:</label> 
+        <input type="password" id="password" name="password"> 
+        <button type="submit">Login</button> 
+    </form> 
+
+    <h2>Add Placeholder Text</h2>
+    <form> 
+        <label for="username">Username:</label> 
+        <input type="text" id="username" name="username" placeholder="Enter your username"> 
+        <label for="password">Password:</label> 
+        <input type="password" id="password" name="password" 
+        placeholder="Enter your password"> 
+        <button type="submit">Login</button> 
+    </form> 
+
+    <h2>Group Form Elements Inside a Container</h2>
+    <div class="login-box"> 
+        <form> 
+            <label for="username">Username:</label> 
+            <input type="text" id="username" name="username" placeholder="Enter your username"> 
+            <label for="password">Password:</label> 
+            <input type="password" id="password" name="password" placeholder="Enter your password"> 
+            <button type="submit">Login</button> 
+        </form> 
+    </div>
+
+    <div class="login-box"> 
+        <h2>Login</h2> 
+            <form> 
+                <!-- inputs and button here --> 
+            </form> 
+    </div>
+
+    <div class="login-box"> 
+        <h2>Login</h2> 
+        <form> 
+            <label for="username">Username:</label> 
+            <input type="text" id="username" name="username"placeholder="Enter your username"> 
+            <label for="password">Password:</label> 
+            <input type="password" id="password" name="password"placeholder="Enter your password"> 
+                <label> 
+                    Remember Me<input type="checkbox" name="remember"> 
+                </label> 
+            <button type="submit">Login</button> 
+        </form> 
+    </div>
+
+    <div class="login-box"> 
+        <h2>Login</h2> 
+            <form> 
+                <label for="username">Username:</label> 
+                <input type="text" id="username" name="username"placeholder="Enter your username"> 
+                <label for="password">Password:</label> 
+                <input type="password" id="password" name="password"placeholder="Enter your password"> 
+                    <label> 
+                        Remember Me <input type="checkbox" name="remember"> 
+                    </label> 
+                <button type="submit">Login</button> 
+                    <p style="text-align:center; margin-top:10px;"> 
+                        <a href="#">Forgot Password?</a> 
+                    </p> 
+            </form> 
+    </div> 
+
+    <div id="box">
+        <h2>Change background color</h2>
+    </div>
+
+    <script src="jquery-3.7.1.min.js">
+        $(document).ready(function(){ 
+        // your jQuery code here 
+        }); 
+    </script>
+
+    <p id="demo">Testing</p>
+    <script>
+        document.getElementById("demo").innerText = "Hello JavaScript!"; 
+        document.getElementById("box").style.backgroundColor = "lightblue";
+    </script>
+
+    <p id="magicText">This will be hidden</p>
+    <button type="submit" id="dissappear">Invisible</button>
+    <button type="submit" id="appear">Appear</button>
+    <button type="submit" id="btn">Visibility</button>
+    
+    <script>
+        document.getElementById("dissappear").onclick = function() { 
+        document.getElementById("magicText").style.display = "none";
+        };
+        document.getElementById("appear").onclick = function() { 
+        document.getElementById("magicText").style.display = "block"; 
+        };
+
+        document.getElementById("btn").onclick = function() { 
+        let el = document.getElementById("magicText"); 
+        if(el.style.display === "none") { 
+        el.style.display = "block"; 
+        } else { 
+        el.style.display = "none"; 
+        } 
+        }; 
+    </script>
+    
+    
+    
+    
+</body>
+</html>
+
+
