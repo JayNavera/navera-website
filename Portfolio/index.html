@@ -1,45 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <style>
-  </style>
-</head>
+  <head>
+    <!-- ===== HEAD ===== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stylish Portfolio — Your Name</title>
 
-<body>
-  <ul>
-      <li>Home</li>
-      <li>Projects</li>
-      <li>About</li>
-      <li>Contact</li>
-  </ul>
-  <h1>Hi, I'm Jaymark</h1>
-  <h2>Animation student, passionate in 3D modelling, rigging, and animation.</h2>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <h2>Introduction</h2>
-  <h1>Overview</h1>
-  <p>I'm currently a 3rd year Animation student. Actively working on Autodesk Maya for 3D modelling,
-    Photoshop and Substance Painter for texturing. I'm a quick learner, and good collaborator. Aspiring to 
-    work in the field of animation, and game design. Let's work together to bring your ideas to life! </p>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <ul>
-      <li>Character Modelling</li>
-      <li>Environment Modelling</li>
-      <li>Rigging</li>
-      <li>Animation</li>
-    </ul>
+    <!-- Favicon placeholder -->
+    <link rel="icon" href="data:;base64,=">
 
-    <h2>MY WORK</h2>
-    <h1>Projects</h1>
-    <p>Following projects showcases my skills and expertise. Each project is briefly described with previews. 
-      It reflects my ability to solve complex modelling problems, work with different tools, and manage projects effectively.</p>
+    <!-- ===== STYLES ===== -->
+    <style>
+      :root{
+        --accent:#6f42c1; /* purple accent */
+        --muted:#adb5bd;
+        --nav-bg:#000; /* pure black navbar */
+        --hero-bg:#0a0f1a; /* dark blue background */
+      }
+      html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#fff;background:var(--hero-bg)}
 
+      /* Sticky header */
+      .navbar.sticky-top{background:var(--nav-bg)!important;}
+      .navbar .nav-link, .navbar .navbar-brand span{color:#fff!important}
+      .brand-bold{font-weight:800;letter-spacing:0.3px;color:#fff!important}
 
-    
+      /* Navbar logo */
+      .navbar-brand img{
+        height:40px;width:40px;object-fit:cover;border-radius:50%;
+      }
+      .navbar-nav .nav-link{margin-left:1.2rem;font-size:1.1rem;}
 
+      /* Hero */
+      .hero{
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        padding:6rem 0;
+        background:linear-gradient(180deg,rgba(10,15,26,0.7),rgba(10,15,26,0.85)), 
+                   url("images/bg.jpg") no-repeat center center;
+        background-size:cover;
+      }
+      .hero h1{font-size:2.25rem;}
+      .hero p{font-size:1.25rem;}
+      .hero .btn{padding:0.75rem 1.5rem;font-size:1.1rem;}
 
+      /* Project cards */
+      .project-card{transition:transform .25s ease,box-shadow .25s ease;cursor:pointer}
+      .project-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(33,37,41,0.4)}
 
-</body>
+      /* Accent buttons */
+      .btn-accent{background:var(--accent);border:none;color:#fff}
+      .btn-outline-accent{border-color:var(--accent);color:var(--accent)}
+
+      /* Section headings */
+      .section-title{font-weight:700;color:#fff;margin-bottom:1rem}
+      .muted{color:var(--muted)}
+
+      /* Footer */
+      footer{padding:3rem 0;background:#111;color:#ccc}
+
+      /* Responsive tweaks */
+      @media (max-width:576px){
+        .hero{padding:3rem 0}
+      }
+
+      /* Small utility */
+      .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,0.06);font-size:.85rem;color:#000}
+    </style>
+  </head>
+  <body>
+
+    <!-- ===== BODY ===== -->
+
+    <!-- NAVBAR (sticky) -->
+    <nav class="navbar sticky-top navbar-expand-lg shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="images/JN.jpg" alt="logo">
+          <span class="brand-bold">YOUR</span><span class="muted">Portfolio</span>
+        </a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item ms-3"><a class="btn btn-accent btn-sm" href="#contact">Hire me</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO / INTRO -->
+    <header class="hero">
+      <div class="container text-center">
+        <h1 class="mb-3">Hi, I’m <strong>Your Name</strong></h1>
+        <p class="mb-4 muted">A product designer & 3D artist who builds meaningful visual experiences and interactive prototypes.</p>
+        <div class="d-flex gap-3 justify-content-center">
+          <a class="btn btn-accent" href="#projects">View projects</a>
+          <a class="btn btn-outline-accent" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3 class="section-title">About me</h3>
+            <p class="muted">I’m a creative professional with X years of experience producing high-quality 3D renders, product visuals, and interactive prototypes. I enjoy turning complex problems into elegant, usable products. When I’m not designing, I’m usually learning new tools or experimenting with textures and particles.</p>
+            <ul class="list-unstyled mt-3">
+              <li><strong>Location:</strong> Philippines</li>
+              <li><strong>Available:</strong> Remote / On-site</li>
+              <li><strong>Contact:</strong> <a href="mailto:you@domain.com">you@domain.com</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="card p-3 bg-dark text-light">
+                  <h5 class="mb-1">Design</h5>
+                  <p class="small muted mb-0">User-centered design, prototyping, and motion.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card p-3 bg-dark text-light">
+                  <h5 class="mb-1">3D</h5>
+                  <p class="small muted mb-0">Modeling, texturing, lighting, and rendering.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card p-3 bg-dark text-light">
+                  <h5 class="mb-1">Frontend</h5>
+                  <p class="small muted mb-0">HTML, CSS, JS, Bootstrap, small interactions.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card p-3 bg-dark text-light">
+                  <h5 class="mb-1">Tools</h5>
+                  <p class="small muted mb-0">Blender, Cinema4D, Figma, Three.js.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="section-title mb-0">Selected projects</h3>
+          <div class="muted">Some recent work — click to view details</div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+          <!-- Project card (repeat) -->
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img="images/proj1.jpg">
+              <img src="images/proj1.jpg" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Project Title A</h5>
+                <p class="card-text muted small mb-3">Short description that explains the goal or result.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">2024 • Branding</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img="https://via.placeholder.com/800x450">
+              <img src="https://via.placeholder.com/800x450" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Project Title B</h5>
+                <p class="card-text muted small mb-3">Short description that explains the goal or result.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">2023 • Product</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img="https://via.placeholder.com/800x450">
+              <img src="https://via.placeholder.com/800x450" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Project Title C</h5>
+                <p class="card-text muted small mb-3">Short description that explains the goal or result.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">2022 • Exploration</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-5">
+      <div class="container">
+        <h3 class="section-title">Services</h3>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 p-3 bg-dark text-light">
+              <h5>End-to-end design</h5>
+              <p class="small muted mb-0">Research, wireframing, prototyping and handoff.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 p-3 bg-dark text-light">
+              <h5>3D visuals</h5>
+              <p class="small muted mb-0">High-quality product renders and animations.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 p-3 bg-dark text-light">
+              <h5>Frontend & interactions</h5>
+              <p class="small muted mb-0">Small interactive prototypes, micro-interactions and demos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="section-title">Let's work together</h3>
+            <p class="muted">Tell me about your project. I'll reply within a couple of days.</p>
+
+            <form class="mt-3">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" placeholder="Your name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" placeholder="you@domain.com" type="email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="5" placeholder="Project details, budget, timeline..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-accent">Send message</button>
+            </form>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="card p-4 h-100 bg-dark text-light">
+              <h5 class="mb-3">Contact details</h5>
+              <p class="mb-1"><strong>Email:</strong> you@domain.com</p>
+              <p class="mb-1"><strong>Phone:</strong> +63 9XX XXX XXXX</p>
+              <p class="mb-0"><strong>Location:</strong> Philippines</p>
+
+              <hr>
+              <h6>Follow</h6>
+              <div class="d-flex gap-2 mt-2">
+                <a class="btn btn-outline-secondary btn-sm" href="#">Behance</a>
+                <a class="btn btn-outline-secondary btn-sm" href="#">Dribbble</a>
+                <a class="btn btn-outline-secondary btn-sm" href="#">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container text-center">
+        <p class="mb-1 muted">© <span id="year"></span> Your Name. All rights reserved.</p>
+        <p class="small muted mb-0">Designed with ♥ using Bootstrap.</p>
+      </div>
+    </footer>
+
+    <!-- IMAGE VIEW MODAL -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-center">
+          <div class="modal-header border-0">
+            <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body d-flex align-items-center justify-content-center">
+            <img id="modalImage" src="" class="img-fluid rounded shadow" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap JS (bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Small JS helpers
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Image modal handler
+      var imageModal = document.getElementById('imageModal');
+      imageModal.addEventListener('show.bs.modal', function (event) {
+        var card = event.relatedTarget; // clicked project card
+        var imgSrc = card.getAttribute('data-img'); // full image URL
+        var modalImg = document.getElementById('modalImage');
+        modalImg.src = imgSrc;
+      });
+
+    </script>
+  </body>
 </html>
