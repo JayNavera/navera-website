@@ -32,7 +32,7 @@
       .brand-bold {
         font-weight: 800;
         letter-spacing: 0.3px;
-        background: linear-gradient(45deg, #6f42c1, #6610f2);
+        background: linear-gradient(45deg, #b08cf3, #512da7);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -77,6 +77,7 @@
         font-size:1.1rem;
       }
 
+      /* Moving arrow down */
       .scroll-down-arrow {
           position: absolute;
           bottom: 100px;
@@ -98,7 +99,7 @@
       }
       .project-card:hover {
         transform:translateY(-6px);
-        box-shadow:0 12px 30px rgba(33,37,41,0.4)
+        box-shadow:0 12px 30px rgba(39, 33, 41, 0.4)
       }
 
       .btn-accent {
@@ -138,14 +139,30 @@
         color:#ccc
       }
 
+      #prevBtn, #nextBtn {
+        cursor: pointer;
+        font-size: 2rem;
+        padding: 0.2rem 0.6rem;
+        background-color: var(--accent);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        user-select: none;
+        z-index: 1055;
+      }
+      #prevBtn:hover, #nextBtn:hover {
+        opacity: 1;
+      }
+
       /* When in mobile view */
       @media (max-width:576px) {
         .hero{padding:3rem 0}
       }
-
     </style>
   </head>
-  
+
   <body>
     <!-- NAVBAR (sticky) -->
     <nav class="navbar sticky-top navbar-expand-lg shadow-sm">
@@ -180,8 +197,8 @@
         </div>  
         <div class="scroll-down-arrow" aria-label="Scroll down">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7e4ef0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
             </svg>
         </div>
       </div>
@@ -238,12 +255,12 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-          <!-- Project cards -->
+          <!-- Project cards with multiple images in data-img -->
           <div class="col">
             <div class="card project-card h-100 shadow-sm bg-dark text-light"
                  data-bs-toggle="modal"
                  data-bs-target="#imageModal"
-                 data-img="images/Zera1.jpg">
+                 data-img='["images/Zera1.jpg", "images/Zera2.jpg"]'>
               <img src="images/Zera1.jpg" class="card-img-top" alt="project">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Zeraora</h5>
@@ -259,7 +276,7 @@
             <div class="card project-card h-100 shadow-sm bg-dark text-light"
                  data-bs-toggle="modal"
                  data-bs-target="#imageModal"
-                 data-img="images/render6.jpg">
+                 data-img='["images/render6.jpg","images/render2.jpg","images/render3.jpg","images/render4.jpg","images/render5.jpg"]'>
               <img src="images/render6.jpg" class="card-img-top" alt="project">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">City of Freedom</h5>
@@ -275,13 +292,61 @@
             <div class="card project-card h-100 shadow-sm bg-dark text-light"
                  data-bs-toggle="modal"
                  data-bs-target="#imageModal"
-                 data-img="images/proj2.png">
+                 data-img='["images/proj2.png"]'>
               <img src="images/proj2.png" class="card-img-top" alt="project">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Nature Guardian</h5>
                 <p class="card-text muted small mb-3">Head sculpting.</p>
                 <div class="mt-auto d-flex justify-content-between align-items-center">
                   <div class="small muted">ZBrush • Autodesk Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/proj3.jpg"]'>
+              <img src="images/proj3.jpg" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Green Fairy</h5>
+                <p class="card-text muted small mb-3">Character Modelling, N-Cloth simulation.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">Autodesk Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/lucy1.jpg","images/lucy2.jpg","images/lucy3.jpg"]'>
+              <img src="images/lucy1.jpg" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Lucy</h5>
+                <p class="card-text muted small mb-3">Character Modelling.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">Autodesk Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/rig1.png","images/rig2.png","images/rig3.png","images/rig4.png","images/rig5.png","images/rig6.png","images/rig7.png","images/rig8.png","images/rig9.png"]'>
+              <img src="images/rig1.png" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Character Rig</h5>
+                <p class="card-text muted small mb-3">Character Rigging, Skinning, Weights.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div class="small muted">Autodesk Maya</div>
                 </div>
               </div>
             </div>
@@ -370,33 +435,60 @@
       </div>
     </footer>
 
-    <!-- Pag tig click image sa project -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content bg-dark text-center">
+        <div class="modal-content bg-dark text-center position-relative">
           <div class="modal-header border-0">
             <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
           </div>
-          <div class="modal-body d-flex align-items-center justify-content-center">
+          <div class="modal-body d-flex align-items-center justify-content-center position-relative">
             <img id="modalImage" src="" class="img-fluid rounded shadow" alt="">
+            <button id="prevBtn" class="btn btn-outline-accent position-absolute top-50 start-0 translate-middle-y ms-2" type="button">&#8249;</button>
+            <button id="nextBtn" class="btn btn-outline-accent position-absolute top-50 end-0 translate-middle-y me-2" type="button">&#8250;</button>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
 
       var imageModal = document.getElementById('imageModal');
-      imageModal.addEventListener('show.bs.modal', function (event) {
-        var card = event.relatedTarget; 
-        var imgSrc = card.getAttribute('data-img'); 
-        var modalImg = document.getElementById('modalImage');
-        modalImg.src = imgSrc;
+      var modalImg = document.getElementById('modalImage');
+      var currentImages = [];
+      var currentIndex = 0;
+
+      imageModal.addEventListener('show.bs.modal', function(event) {
+        var card = event.relatedTarget;
+        currentImages = JSON.parse(card.getAttribute('data-img'));
+        currentIndex = 0;
+        modalImg.src = currentImages[currentIndex];
+
+        if (currentImages.length > 1) {
+            document.getElementById('prevBtn').style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'block';
+        } else {
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+        }
       });
 
+      document.getElementById('prevBtn').addEventListener('click', function() {
+        if (currentImages.length > 1) {
+          currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+          modalImg.src = currentImages[currentIndex];
+        }
+      });
+
+      document.getElementById('nextBtn').addEventListener('click', function() {
+        if (currentImages.length > 1) {
+          currentIndex = (currentIndex + 1) % currentImages.length;
+          modalImg.src = currentImages[currentIndex];
+        }
+      });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
