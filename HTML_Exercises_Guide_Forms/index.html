@@ -1,38 +1,304 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bootstrap Violet Registration Form</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+  body {
+    background: linear-gradient(180deg, #7626ff 0%, #a086f0 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  .form-container {
+    max-width: 828px;
+    margin: 55px auto;
+    background: #fff;
+    border-radius: 13px;
+    box-shadow: 0 4px 32px rgba(124, 58, 237, 0.13), 0 2.5px 8px #a78bfa55;
+    padding: 28px 40px 22px;
+  }
+  .form-title {
+    color: #7c3aed;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+  label {
+    color: #4c1d95;
+    font-weight: 500;
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    accent-color: #a78bfa;
+  }
+  .toggle-pwd {
+    position: absolute;
+    right: 16px;
+    top: 38px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #9d4edd;
+    padding: 0 4px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .position-relative {
+    position: relative;
+  }
+  .error {
+    border-color: #f87171 !important;
+  }
+  .error-text {
+    color: #f43f5e;
+    font-size: 12px;
+    min-height: 15px;
+    margin-top: 2px;
+  }
+  button.btn-submit {
+    background: linear-gradient(180deg, #a78bfa, #7c3aed 70%);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  button.btn-submit:hover {
+    background: linear-gradient(180deg, #7c3aed, #a78bfa 100%);
+  }
+  .char-count {
+    font-size: 12px;
+    color: #6c42b5;
+    float: right;
+    margin-top: 2px;
+  }
+  #otherInterestText {
+    display: none;
+    margin-top: 5px;
+  }
+</style>
 </head>
-
 <body>
-    <form action="submit.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
+<div class="form-container shadow">
+  <h2 class="form-title">Register</h2>
+  <form id="regForm" novalidate>
+    <div class="row g-3 mb-3">
+      <div class="col-sm-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" />
+        <div class="error-text" id="err-firstName"></div>
+      </div>
+      <div class="col-sm-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" />
+        <div class="error-text" id="err-lastName"></div>
+      </div>
+    </div>
 
-    <form action="#" method="POST">
-        <h2>Contact Us</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <button type="submit">Send</button>
-    </form> <br><br><br>    
+    <div class="row g-3 mb-3">
+      <div class="col-sm-6">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" name="username" class="form-control" />
+        <div class="error-text" id="err-username"></div>
+      </div>
+      <div class="col-sm-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" />
+        <div class="error-text" id="err-email"></div>
+      </div>
+    </div>
 
-    <form>
-        <label for="username" > Username:</label>
-        <input type="text" name="username" id="username" required><br><br>
-        <label for="password"> Password:</label>
-        <input type="password" id="password" name="password" required> <br><br>
-        <button type="submit">Login</button>
-    </form>
+    <div class="row g-3 mb-3">
+      <div class="col-sm-6 position-relative">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" class="form-control" />
+        <button type="button" class="toggle-pwd" id="togglePwd" tabindex="-1">Show</button>
+        <div class="error-text" id="err-password"></div>
+      </div>
+      <div class="col-sm-6">
+        <label for="confirm" class="form-label">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" class="form-control" />
+        <div class="error-text" id="err-confirm"></div>
+      </div>
+    </div>
 
+    <fieldset class="mb-3">
+      <legend class="col-form-label mb-2" style="color:#4c1d95; font-weight: 500;">Gender</legend>
+      <div class="d-flex gap-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="g-male" value="male" />
+          <label class="form-check-label" for="g-male">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="g-female" value="female" />
+          <label class="form-check-label" for="g-female">Female</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="g-other" value="other" />
+          <label class="form-check-label" for="g-other">Other</label>
+        </div>
+      </div>
+      <div class="error-text" id="err-gender"></div>
+    </fieldset>
+
+    <div class="mb-3">
+      <label for="country" class="form-label">Country</label>
+      <select id="country" class="form-select">
+        <option value="">Select...</option>
+        <option value="ph">Philippines</option>
+        <option value="us">USA</option>
+        <option value="kr">Korea</option>
+        <option value="jp">Japan</option>
+        <option value="aus">Australia</option>
+        <option value="other">Others</option>
+      </select>
+      <div class="error-text" id="err-country"></div>
+    </div>
+
+    <fieldset class="mb-3">
+      <legend class="col-form-label mb-2" style="color:#4c1d95; font-weight: 500;">Interests</legend>
+      <div class="d-flex flex-wrap gap-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interests" id="interest-coding" value="coding" />
+          <label class="form-check-label" for="interest-coding">Coding</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interests" id="interest-music" value="music" />
+          <label class="form-check-label" for="interest-music">Music</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interests" id="interest-art" value="art" />
+          <label class="form-check-label" for="interest-art">Art</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interests" id="interest-sports" value="sports" />
+          <label class="form-check-label" for="interest-sports">Sports</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interests" id="interest-others" value="others" />
+          <label class="form-check-label" for="interest-others">Others</label>
+        </div>
+      </div>
+      <input type="text" id="otherInterestText" class="form-control mt-2" placeholder="Please specify" />
+      <div class="error-text" id="err-interests"></div>
+    </fieldset>
+
+    <div class="mb-3">
+      <label for="bio" class="form-label">Short Bio</label>
+      <textarea id="bio" name="bio" class="form-control" maxlength="120" rows="3"></textarea>
+      <div class="char-count" id="bioCount">0 / 120</div>
+      <div class="error-text" id="err-bio"></div>
+    </div>
+
+    <button type="submit" class="btn btn-submit w-100">Submit</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('#togglePwd').on('click', function () {
+    var pwd = $('#password');
+    if (pwd.attr('type') === 'password') {
+      pwd.attr('type', 'text');
+      $(this).text('Hide');
+    } else {
+      pwd.attr('type', 'password');
+      $(this).text('Show');
+    }
+  });
+
+  $('#bio').on('input', function () {
+    var currentLength = $(this).val().length;
+    $('#bioCount').text(currentLength + ' / 120');
+  });
+
+  $('#interest-others').on('change', function () {
+    if ($(this).is(':checked')) {
+      $('#otherInterestText').fadeIn();
+    } else {
+      $('#otherInterestText').fadeOut();
+      $('#otherInterestText').val('');
+    }
+  });
+
+  $('#regForm').on('submit', function (e) {
+    e.preventDefault();
+    var valid = true;
+
+    $('.error-text').text('');
+    $('input, select, textarea').removeClass('error');
+
+    if (!$('#firstName').val()) {
+      $('#err-firstName').text('Required');
+      $('#firstName').addClass('error');
+      valid = false;
+    }
+    if (!$('#lastName').val()) {
+      $('#err-lastName').text('Required');
+      $('#lastName').addClass('error');
+      valid = false;
+    }
+    if (!$('#username').val()) {
+      $('#err-username').text('Required');
+      $('#username').addClass('error');
+      valid = false;
+    }
+    if (!$('#email').val()) {
+      $('#err-email').text('Required');
+      $('#email').addClass('error');
+      valid = false;
+    }
+    if (!$('#password').val()) {
+      $('#err-password').text('Required');
+      $('#password').addClass('error');
+      valid = false;
+    }
+    if (!$('#confirm').val()) {
+      $('#err-confirm').text('Required');
+      $('#confirm').addClass('error');
+      valid = false;
+    }
+    if ($('#password').val() && $('#password').val() !== $('#confirm').val()) {
+      $('#err-confirm').text('Passwords do not match');
+      $('#confirm').addClass('error');
+      valid = false;
+    }
+    if (!$('input[name="gender"]:checked').val()) {
+      $('#err-gender').text('Required');
+      valid = false;
+    }
+    if (!$('#country').val()) {
+      $('#err-country').text('Required');
+      $('#country').addClass('error');
+      valid = false;
+    }
+    if ($('input[name="interests"]:checked').length === 0) {
+      $('#err-interests').text('At least one interest');
+      valid = false;
+    } else if ($('#interest-others').is(':checked') && !$('#otherInterestText').val().trim()) {
+      $('#err-interests').text('Please specify other interests');
+      $('#otherInterestText').addClass('error');
+      valid = false;
+    } else {
+      $('#otherInterestText').removeClass('error');
+    }
+    if (!$('#bio').val()) {
+      $('#err-bio').text('Required');
+      $('#bio').addClass('error');
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Registration Successful!');
+      this.reset();
+      $('#bioCount').text('0 / 120');
+      $('#otherInterestText').hide();
+    }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
-
