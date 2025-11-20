@@ -1,0 +1,5 @@
+<?php
+$age = $_POST['age'];
+$sql = "SELECT * FROM students WHERE age = $aeg";
+?>
+
