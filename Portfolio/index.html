@@ -88,8 +88,8 @@
       }
 
       @keyframes bounce {
-          0%, 100% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(-50%) translateY(10px); }
+         0%, 100% { transform: translateX(-50%) translateY(0); }
+         50% { transform: translateX(-50%) translateY(10px); }
       }
 
       /* Projects*/
@@ -100,6 +100,13 @@
       .project-card:hover {
         transform:translateY(-6px);
         box-shadow:0 12px 30px rgba(39, 33, 41, 0.4)
+      }
+
+      .project-card .card-img-top {
+        width: 100%;
+        height: 200px;        
+        object-fit: cover;   
+        object-position: center;
       }
 
       .btn-accent {
@@ -154,6 +161,14 @@
       }
       #prevBtn:hover, #nextBtn:hover {
         opacity: 1;
+      }
+
+      /* Modal media styles */
+      #modalMedia img, #modalMedia video {
+        max-height: 80vh;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 8px;
       }
 
       /* When in mobile view */
@@ -255,7 +270,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-          <!-- Project cards with multiple images in data-img -->
+          <!-- Project cards with multiple images/videos in data-img -->
           <div class="col">
             <div class="card project-card h-100 shadow-sm bg-dark text-light"
                  data-bs-toggle="modal"
@@ -352,6 +367,152 @@
             </div>
           </div>
 
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/Mino.mp4"]'>
+              <img src=videos/ss1.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">The Minokawa And The Sun's Return</h5>
+                <p class="card-text muted small mb-3">Storyboard Animatic.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Procreate • Photoshop • Premiere Pro</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/lip.mp4"]'>
+              <img src=videos/ss2.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Character Lip Syncing</h5>
+                <p class="card-text muted small mb-3">3D lipsync.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/mv.mp4"]'>
+              <img src=videos/ss4.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Freestyle Animation</h5>
+                <p class="card-text muted small mb-3">Music video parody.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                  data-bs-toggle="modal"
+                  data-bs-target="#imageModal"
+                  data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/BBperspective.mp4"]'>
+              <img src=videos/ss3.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Bouncing Ball</h5>
+                <p class="card-text muted small mb-3">3D ball animation.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/RunCycle.mp4"]'>
+              <img src=videos/ss5.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Run Cycle</h5>
+                <p class="card-text muted small mb-3">3D run cycle animation.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Maya</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["https://github.com/JayNavera/navera-website/releases/download/vid/websiteDesign.mp4"]'>
+              <img src=videos/ss6.png class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Website Prototype</h5>
+                <p class="card-text muted small mb-3">Website design, prototype.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Figma</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/mobile1.jpg","images/mobile2.jpg","images/mobile3.jpg"]'>
+              <img src="images/mobile1.jpg" class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Mobile App Design</h5>
+                <p class="card-text muted small mb-3">Application Design.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Figma</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/packageDesign1.jpg","images/packageDesign2.jpg","images/packageDesign3.jpg"]'>
+              <img src=images/packageDesign1.jpg class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Packaging Design</h5>
+                <p class="card-text muted small mb-3">Package design, mockup.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Adobe Illustrator</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card project-card h-100 shadow-sm bg-dark text-light"
+                 data-bs-toggle="modal"
+                 data-bs-target="#imageModal"
+                 data-img='["images/bookCover1.PNG","images/bookCover2.PNG"]'>
+              <img src=images/bookCover1.PNG class="card-img-top" alt="project">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Book Cover Redesign</h5>
+                <p class="card-text muted small mb-3">Book cover layout.</p>
+                <div class="mt-auto d -flex justify-content-between align-items-center">
+                  <div class="small muted">Procreate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+
         </div>
       </div>
     </section>
@@ -442,7 +603,7 @@
             <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body d-flex align-items-center justify-content-center position-relative">
-            <img id="modalImage" src="" class="img-fluid rounded shadow" alt="">
+            <div id="modalMedia"></div>
             <button id="prevBtn" class="btn btn-outline-accent position-absolute top-50 start-0 translate-middle-y ms-2" type="button">&#8249;</button>
             <button id="nextBtn" class="btn btn-outline-accent position-absolute top-50 end-0 translate-middle-y me-2" type="button">&#8250;</button>
           </div>
@@ -454,36 +615,61 @@
       document.getElementById('year').textContent = new Date().getFullYear();
 
       var imageModal = document.getElementById('imageModal');
-      var modalImg = document.getElementById('modalImage');
-      var currentImages = [];
+      var modalMedia = document.getElementById('modalMedia');
+      var currentMedia = [];
       var currentIndex = 0;
+
+      function loadMedia(index) {
+        const file = currentMedia[index];
+        const isVideo = file.match(/\.(mp4|mkv|webm|ogg)$/i);
+        
+        // Clear existing content
+        modalMedia.innerHTML = '';
+        
+        if (isVideo) {
+          // Create video element
+          const video = document.createElement('video');
+          video.src = file;
+          video.className = 'img-fluid rounded shadow';
+          video.controls = true;
+          video.preload = 'metadata';
+          modalMedia.appendChild(video);
+        } else {
+          // Create image element (original behavior)
+          const img = document.createElement('img');
+          img.src = file;
+          img.className = 'img-fluid rounded shadow';
+          img.alt = 'Project media';
+          modalMedia.appendChild(img);
+        }
+      }
 
       imageModal.addEventListener('show.bs.modal', function(event) {
         var card = event.relatedTarget;
-        currentImages = JSON.parse(card.getAttribute('data-img'));
+        currentMedia = JSON.parse(card.getAttribute('data-img'));
         currentIndex = 0;
-        modalImg.src = currentImages[currentIndex];
+        loadMedia(currentIndex);
 
-        if (currentImages.length > 1) {
-            document.getElementById('prevBtn').style.display = 'block';
-            document.getElementById('nextBtn').style.display = 'block';
+        if (currentMedia.length > 1) {
+          document.getElementById('prevBtn').style.display = 'block';
+          document.getElementById('nextBtn').style.display = 'block';
         } else {
-            document.getElementById('prevBtn').style.display = 'none';
-            document.getElementById('nextBtn').style.display = 'none';
+          document.getElementById('prevBtn').style.display = 'none';
+          document.getElementById('nextBtn').style.display = 'none';
         }
       });
 
       document.getElementById('prevBtn').addEventListener('click', function() {
-        if (currentImages.length > 1) {
-          currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-          modalImg.src = currentImages[currentIndex];
+        if (currentMedia.length > 1) {
+          currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+          loadMedia(currentIndex);
         }
       });
 
       document.getElementById('nextBtn').addEventListener('click', function() {
-        if (currentImages.length > 1) {
-          currentIndex = (currentIndex + 1) % currentImages.length;
-          modalImg.src = currentImages[currentIndex];
+        if (currentMedia.length > 1) {
+          currentIndex = (currentIndex + 1) % currentMedia.length;
+          loadMedia(currentIndex);
         }
       });
     </script>
